@@ -5,25 +5,14 @@ import CountryDetails from "./pages/CountryDetails";
 import NavBar from "./Components/NavBar";
 import { useEffect, useState } from "react";
 
+import CountriesData from "./data.json";
+
 function App() {
   //======declare intial========
-  const [allCountries, setAllCountries] = useState([]);
-
+  const [allCountries] = useState(CountriesData);
   const [filteredCountries, setFilteredCountries] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  // ========fetch all countries data======
-  useEffect(() => {
-    const getData = async () => {
-      const fetchData = await fetch("../data.json");
-      const convertedData = await fetchData.json();
-
-      console.log(convertedData);
-
-      setAllCountries(convertedData);
-    };
-
-    getData();
-  }, []);
   // ========filter countries by search========
   const filterBySearch = (searched) => {
     const searchedCountry = allCountries.filter((country) => {

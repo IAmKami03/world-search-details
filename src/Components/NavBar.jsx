@@ -38,7 +38,7 @@ const NavBar = () => {
             localStorage.setItem("dark-mode", JSON.stringify(true));
           }
         }}
-        className="dark-mode-toggle flex items-center gap-2 cursor-pointer"
+        className="flex items-center gap-2 cursor-pointer"
       >
         {moon}
         <p className="sm:text-[16px] text-[12px] font-semibold">
